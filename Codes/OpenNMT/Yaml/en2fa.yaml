@@ -1,0 +1,62 @@
+## Where the samples will be written
+save_data: /content/drive/MyDrive/NLP5/Vocab
+## Where the vocab(s) will be written
+src_vocab: /content/drive/MyDrive/NLP5/Vocab/Vocab.vocab.src
+tgt_vocab: /content/drive/MyDrive/NLP5/Vocab/Vocab.vocab.tgt
+# Prevent overwriting existing files in the folder
+overwrite: False
+
+# Corpus opts:
+data:
+    corpus_1:
+        path_src: /content/drive/MyDrive/NLP5/BPE/src-train-bpe.txt
+        path_tgt: /content/drive/MyDrive/NLP5/BPE/tgt-train-bpe.txt
+    valid:
+        path_src: /content/drive/MyDrive/NLP5/BPE/src-valid-bpe.txt
+        path_tgt: /content/drive/MyDrive/NLP5/BPE/tgt-valid-bpe.txt
+
+# Checkpoint Parameter : 
+save_model: /content/drive/MyDrive/NLP5/Checkpoint
+save_checkpoint_steps: 500
+valid_steps: 500
+train_steps: 10000
+
+
+# Model Parameter : 
+encoder_type: transformer
+decoder_type: transformer
+position_encoding: true
+enc_layers: 6
+dec_layers: 6
+heads: 8
+rnn_size: 512
+word_vec_size: 512
+transformer_ff: 2048
+dropout_steps: [0]
+dropout: [0.1]
+attention_dropout: [0.1]
+
+
+# Batching
+queue_size: 10000
+bucket_size: 32768
+world_size: 1
+gpu_ranks: 0
+batch_type: "tokens"
+batch_size: 4096
+valid_batch_size: 8
+max_generator_batches: 2
+
+
+# Optimizer : 
+model_dtype: "fp32"
+optim: "adam"
+learning_rate: 2
+warmup_steps: 8000
+decay_method: "noam"
+adam_beta2: 0.998
+max_grad_norm: 0
+label_smoothing: 0.1
+param_init: 0
+param_init_glorot: true
+normalization: "tokens"

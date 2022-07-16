@@ -1,0 +1,1 @@
+Generate test with beam=10: BLEU4 = 1.36, 31.5/5.2/0.9/0.1 (BP=0.637, ratio=0.689, syslen=8320, reflen=12077)

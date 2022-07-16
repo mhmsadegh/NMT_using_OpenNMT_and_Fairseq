@@ -1,0 +1,1 @@
+Generate test with beam=10: chrF2 = 18.18
